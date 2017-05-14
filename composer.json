@@ -1,0 +1,20 @@
+{
+    "name":"ERYAO PHP",
+    "description":"study PHP framework",
+    "type":"Framework",
+    "keywords":[
+        "eryao","PHP Framework"
+    ],
+    "require":{
+        "php":">= 5.3.0",
+        "filp/whoops":"*",
+        "symfony/var-dumper":"*",
+        "catfan/medoo":"*"
+    },
+    "repositories": {
+        "packagist": {
+            "type": "composer",
+            "url": "https://packagist.phpcomposer.com"
+        }
+    }
+}
