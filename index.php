@@ -24,7 +24,6 @@ if(DEBUG){
 }else{
     ini_set('display_error','Off');
 }
-dump($_SERVER);
 include CORE.'/common/function.php';
 include CORE.'/eryao.php';
 spl_autoload_register('\core\eryao::load');

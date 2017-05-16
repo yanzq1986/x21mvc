@@ -1,30 +1,22 @@
-![](https://cloud.githubusercontent.com/assets/1467904/19835326/ca62bc36-9ebd-11e6-8b37-7240d76319cd.png)
+![](https://raw.githubusercontent.com/catfan/Medoo/develop/src/medoo-logo.png)
 
-## [Medoo](https://medoo.in)
-
-[![Total Downloads](https://poser.pugx.org/catfan/medoo/downloads)](https://packagist.org/packages/catfan/medoo)
-[![Latest Stable Version](https://poser.pugx.org/catfan/medoo/v/stable)](https://packagist.org/packages/catfan/medoo)
-[![License](https://poser.pugx.org/catfan/medoo/license)](https://packagist.org/packages/catfan/medoo)
+## [Medoo](http://medoo.in)
 
 > The Lightest PHP database framework to accelerate development
 
 ## Main Features
 
-* **Lightweight** - 32KB around with only one file.
+* **Lightweight** - 20KB around with only one file.
 
 * **Easy** - Extremely easy to learn and use, friendly construction.
 
-* **Powerful** - Supports various common and complex SQL queries, data mapping, and prevent SQL injection.
+* **Powerful** - Support various common and complex SQL queries.
 
-* **Compatible** - Supports all SQL databases, including MySQL, MSSQL, SQLite, MariaDB, Sybase, Oracle, PostgreSQL and more.
+* **Compatible** - Support various SQL database, including MySQL, MSSQL, SQLite, MariaDB, Sybase, Oracle, PostgreSQL and more.
 
-* **Friendly** - Works well with every PHP frameworks, like Laravel, Codeigniter, Yii, Slim, and framework which supports singleton extension.
+* **Security** - Prevent SQL injection.
 
 * **Free** - Under MIT license, you can use it anywhere if you want.
-
-## Requirement
-
-PHP 5.4+ and PDO extension installed
 
 ## Get Started
 
@@ -44,39 +36,26 @@ $ composer update
 // If you installed via composer, just use this code to requrie autoloader on the top of your projects.
 require 'vendor/autoload.php';
 
-// Using Medoo namespace
-use Medoo\Medoo;
+// Or if you just download the medoo.php into directory, require it with the correct path.
+require_once 'medoo.php';
 
 // Initialize
-$database = new Medoo([
+$database = new medoo([
     'database_type' => 'mysql',
     'database_name' => 'name',
     'server' => 'localhost',
     'username' => 'your_username',
-    'password' => 'your_password'
+    'password' => 'your_password',
+    'charset' => 'utf8'
 ]);
 
 // Enjoy
 $database->insert('account', [
     'user_name' => 'foo',
-    'email' => 'foo@bar.com'
+    'email' => 'foo@bar.com',
+    'age' => 25,
+    'lang' => ['en', 'fr', 'jp', 'cn']
 ]);
-
-$data = $database->select('account', [
-    'user_name',
-    'email'
-], [
-    'user_id' => 50
-]);
-
-echo json_encode($data);
-
-// [
-//     {
-//         "user_name" : "foo",
-//         "email" : "foo@bar.com",
-//     }
-// ]
 ```
 
 ## Contribution Guides
@@ -93,6 +72,6 @@ Medoo is under the MIT license.
 
 ## Links
 
-* Official website: [https://medoo.in](https://medoo.in)
+* Official website: [http://medoo.in](http://medoo.in)
 
-* Documentation: [https://medoo.in/doc](https://medoo.in/doc)
+* Documentation: [http://medoo.in/doc](http://medoo.in/doc)

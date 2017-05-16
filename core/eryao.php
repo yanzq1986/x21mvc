@@ -46,8 +46,14 @@ class eryao{
     public function display($file){
         $file = APP.'/tpl/'.$file;
         if(is_file($file)){
-            extract($this->assign);
-            include $file;
+            \Twig_Autoloader::register();
+            $loader = new \Twig_Loader_Filesystem(APP.'/tpl');
+            $twig = new \Twig_Environment($loader, array(
+                'cache' => ERYAO.'/temp/_cache',
+                'debug' => DEBUG
+            ));
+            $template = $twig->loadTemplate('index.html');
+            $template->display($this->assign?$this->assign:'');
         }
     }
 }
